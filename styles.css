@@ -1,0 +1,124 @@
+/* === General page style === */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+  background: linear-gradient(to right, #4facfe, #00f2fe); /* blue gradient background */
+  transition: background 0.5s; /* smooth transition when theme changes */
+}
+
+/* === Dark mode style === */
+body.dark {
+  background: linear-gradient(to right, #141e30, #243b55); /* dark gradient */
+  color: #eee; /* slightly lighter text color */
+}
+
+/* === Canvas covers the entire page as animated background === */
+#bgCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1; /* keeps canvas behind the widgets */
+}
+
+/* === Widget container style === */
+.widget {
+  background: rgba(0,0,0,0.3); /* semi-transparent black background */
+  padding: 20px;
+  margin: 20px auto;
+  width: 280px; /* default box width for other widgets */
+  border-radius: 10px; /* rounded corners */
+
+  /* Initial state for fade-in effect on scroll */
+  opacity: 0;
+  transform: translateY(20px); /* move slightly down */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* smooth fade & move */
+}
+
+/* === Make only the art gallery widget bigger === */
+.widget.gallery {
+  width: 400px; /* wider gallery box */
+}
+
+/* === When widget becomes visible (via IntersectionObserver) === */
+.widget.visible {
+  opacity: 1;
+  transform: translateY(0); /* move to original position */
+}
+
+/* === Button style === */
+button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.5); /* semi-transparent white */
+  color: black;
+  cursor: pointer;
+}
+button:hover {
+  background: rgba(255,255,255,0.7); /* lighter on hover */
+}
+
+/* === Notes text area style === */
+textarea {
+  width: 100%;
+  border-radius: 6px;
+  border: none;
+  resize: none;
+  padding: 5px;
+}
+
+/* === Art Gallery: container that holds images and slides === */
+.gallery-container {
+  display: flex;
+  gap: 10px; /* space between images */
+  margin-top: 15px;
+  overflow: hidden; /* hide scrolling bar */
+  width: 380px; /* match new gallery widget width minus padding */
+}
+
+/* === Art Gallery images: now bigger thumbnails === */
+.gallery-container img {
+  width: 160px;
+  height: 160px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(255,255,255,0.5); /* subtle glow */
+}
+
+/* === Image hover effect === */
+.gallery-container img:hover {
+  transform: scale(1.1); /* zoom in slightly */
+  box-shadow: 0 0 20px rgba(255,255,255,0.8); /* stronger glow */
+}
+
+/* === Fullscreen overlay when image clicked === */
+#fullscreenOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9); /* dark background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* above everything else */
+}
+
+/* === Fullscreen image style === */
+#fullscreenOverlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px; /* rounded corners */
+}
+
+/* === Close button for fullscreen overlay === */
+#closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}

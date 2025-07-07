@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Interactive Dashboard</title>
+<!-- Link to external CSS file -->
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Canvas for background animation -->
+<canvas id="bgCanvas"></canvas>
+
+<!-- Page title -->
+<h1>🌟 My Interactive Dashboard 🌟</h1>
+
+<!-- Clock Widget: shows live time -->
+<div class="widget">
+  <h2>🕒 Clock</h2>
+  <div id="clock">Loading...</div>
+</div>
+
+<!-- Quote Widget: shows random quote -->
+<div class="widget">
+  <h2>💡 Quote</h2>
+  <div id="quote">Click below for a quote</div>
+  <button onclick="showQuote()">New Quote</button>
+</div>
+
+<!-- Notes Widget: saves your note in local storage -->
+<div class="widget">
+  <h2>📝 My Note</h2>
+  <textarea id="note" rows="4" placeholder="Type something..."></textarea>
+</div>
+
+<!-- Sound Widget: toggles simple tone on/off -->
+<div class="widget">
+  <h2>🎵 Sound</h2>
+  <button onclick="toggleSound()">Play / Pause</button>
+</div>
+
+<!-- Dark Mode Toggle Widget: switch between light/dark theme -->
+<div class="widget">
+  <h2>🌓 Theme</h2>
+  <button onclick="toggleDarkMode()">Toggle Dark / Light</button>
+</div>
+
+<!-- Digital Art Gallery Widget -->
+<div class="widget gallery">
+  <h2>🎨 Digital Art Gallery</h2>
+  <!-- Gallery container: auto-slide + mouse effect + click preview -->
+  <div class="gallery-container" id="galleryContainer">
+    <img src="images/Beauty.jpg" alt="Art 1">
+    <img src="images/Stone-Circle.jpg" alt="Art 2">
+    <img src="images/Sunset.jpg" alt="Art 3">
+    <img src="images/valley.jpg" alt="Art 4">
+    <img src="images/water&trees.jpg" alt="Art 5">
+  </div>
+</div>
+
+<!-- Fullscreen overlay: shows big image when clicked -->
+<div id="fullscreenOverlay" style="display:none;">
+  <span id="closeBtn">&times;</span> <!-- close button -->
+  <img id="fullscreenImage" src="" alt=n "Full view">
+</div>
+
+<!-- Link to external JavaScript file -->
+<script src="script.js"></script>
+</body>
+</html>
